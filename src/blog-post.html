@@ -1,0 +1,50 @@
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+
+<dom-module id="blog-post">
+    <template>
+        <style>
+            :host{
+                display: none;
+            }
+
+            :host([active]){
+                display: block;
+            }
+    
+        </style>
+        [[active]]
+        <div>Yo</div>
+
+        PostId => [[postid]]
+    </template>
+    <script>
+        class BlogPost extends Polymer.Element{
+            static get is(){
+                return 'blog-post'
+            }
+            
+            static get properties() {
+                return {
+                    
+                };
+            }
+
+            /**
+              * Called every time the element is inserted into the DOM. Useful for 
+              * running setup code, such as fetching resources or rendering.
+              * Generally, you should try to delay work until this time.
+              */
+            connectedCallback() {
+                super.connectedCallback();
+                console.log(this.route);
+                console.log('gjsajfslkafkl');
+            
+            }
+        }
+
+        window.customElements.define(BlogPost.is, BlogPost);
+    
+    </script>
+</dom-module>

@@ -1,0 +1,59 @@
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="blog-post.html">
+<dom-module id="hakke-blog">
+    <template>
+        <style>
+            :host{
+                display: block;
+            }
+        </style>
+
+        <app-route route="{{route}}"
+                   pattern="/blog/:slug"
+                   data="{{postData}}"
+                   active="{{postActive}}"
+                   ></app-route>
+
+        <template is="dom-if" if="[[!postActive]]">
+                <div class="card">
+                        <h1>All Blog Posts</h1>
+
+                        <a href="[[route.path]]/1">PostId 1</a>
+                        <a href="[[route.path]]/2">PostId 2</a>
+                        <a href="[[route.path]]/3">PostId 3</a>
+                        
+
+
+                    </div>
+        </template>
+
+
+        <template is="dom-if" if="[[postActive]]">
+            activated [[postActive]]
+            <blog-post postid="{{postData.slug}}" active="{{postActive}}"></blog-post>
+        </template>
+
+      
+
+
+
+    </template>
+    <script>
+        class HakkeBlog extends Polymer.Element{
+            static get is() { return 'hakke-blog'; }
+
+
+            static get properties() {
+                return {
+                    
+                };
+            }
+
+        }
+    
+        window.customElements.define(HakkeBlog.is, HakkeBlog);
+    </script>
+</dom-module>
