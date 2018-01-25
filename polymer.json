@@ -1,0 +1,46 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/my-app.html",
+  "fragments": [
+    "src/hakke-home.html",
+    "src/hakke-youtube.html",
+    "src/hakke-blog.html",
+    "src/hakke-page404.html"
+  ],
+  "sources": [
+    "src/**/*",
+    "images/**/*"
+  ],
+  "extraDependencies": [
+    "manifest.json",
+    "bower_components/webcomponentsjs/*.js"
+  ],
+  "lint": {
+    "rules": ["polymer-2"]
+  },
+  "builds": [
+    {
+      "preset": "es5-bundled"
+    },
+    {
+      "preset": "es6-bundled"
+    },
+    {
+      "preset": "es6-unbundled"
+    },
+    {
+      "name": "unbundled",
+      "bundle":false,
+      "js": {"minify": true},
+      "css": {
+        "minify": true
+      },
+      "html": {
+        "minify": true
+      },
+      "addServiceWorker": true,
+      "addPushManifest": true,
+      "insertPrefetchLinks": true
+    }
+  ]
+}
